@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #93bcc9;
+}
+header, nav, footer {
+    background: #000000;
+    color: rgb(152, 184, 233);
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    color: rgb(22, 80, 167);
+    margin: 0 10px;
+    text-decoration: none;
+}
+.container {
+    padding: 20px;
+}
+.product {
+    border: 1px solid #769eda;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    width: 200px;
+}
+.product img {
+    width: 100%;
+}
+.contact {
+    text-align: center;        /* จัดให้อยู่ตรงกลาง */
+    margin-top: 100px;         /* เว้นระยะจากด้านบน */
+    color: #3582a0;               /* สีข้อความ */
+}
+
+.contact h2 {
+    font-size: 36px;           /* ขนาดหัวข้อใหญ่ */
+    color: #0074cc;            /* สีฟ้าเข้ม */
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 24px;           /* ข้อความใหญ่ขึ้น */
+    margin: 10px 0;
+}
+.cart {
+    text-align: center;        /* ข้อความตรงกลาง */
+    margin-top: 100px;         /* เว้นระยะจากด้านบน */
+    color: #cac4c4;
+}
+
+.cart h2 {
+    font-size: 36px;           /* ขนาดหัวข้อใหญ่ */
+    color: #0074cc;            /* ฟ้าเข้ม */
+    margin-bottom: 20px;
+}
+
+.cart p {
+    font-size: 24px;           /* ข้อความใหญ่ขึ้น */
+    margin: 10px 0;
+}
+.about {
+    text-align: center;        /* ข้อความตรงกลาง */
+    margin-top: 100px;         /* เว้นระยะด้านบน */
+    color: #333;
+}
+
+.about h2 {
+    font-size: 36px;           /* ขนาดหัวข้อใหญ่ */
+    color: #0074cc;            /* สีฟ้าเข้ม */
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 24px;           /* ข้อความใหญ่ขึ้น */
+    margin: 10px 0;
+    .product-center {
+    display: flex;
+    justify-content: center;   /* จัดกลางแนวนอน */
+    align-items: center;       /* จัดกลางแนวตั้ง */
+    margin: 40px 0;
+}
+
+.product-center img {
+    max-width: 90%;    /* กินพื้นที่เต็มเกือบสุด */
+    height: auto;      /* สัดส่วนภาพไม่เพี้ยน */
+    border: 5px solid #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+.product-center img {
+    /* คุณสมบัติเดิม */
+    max-width: 90%; /* อันนี้ทำให้ภาพไม่เต็มจอ */
+    height: auto;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border-radius: 10px;
+
+    /* เพิ่มและปรับปรุงส่วนนี้เพื่อทำให้รูปเต็มหน้าจอ */
+    width: 100vw; /* ให้รูปภาพกว้างเต็ม Viewport Width */
+    height: calc(100vh - 120px); /* ให้รูปภาพสูงเต็ม Viewport Height ลบด้วยความสูงของ Header และ Footer โดยประมาณ */
+    object-fit: cover; /* ทำให้รูปภาพครอบคลุมพื้นที่ทั้งหมดโดยไม่เสียสัดส่วน (อาจมีการ crop บางส่วน) */
+    position: absolute; /* กำหนดตำแหน่งให้รูปภาพสามารถครอบคลุมพื้นที่ได้ */
+    top: 50%; /* จัดตำแหน่งกึ่งกลางแนวตั้ง */
+    left: 50%; /* จัดตำแหน่งกึ่งกลางแนวนอน */
+    transform: translate(-50%, -50%); /* เลื่อนรูปกลับมาที่จุดกึ่งกลางที่แท้จริง */
+    z-index: -1; /* ส่งรูปภาพไปด้านหลัง เพื่อไม่ให้ทับข้อความอื่นๆ */
+}
+
+/* เพิ่มการปรับปรุงใน main เพื่อรองรับรูปภาพเต็มหน้าจอ */
+main {
+    position: relative; /* กำหนดให้ main เป็น container สำหรับการจัดตำแหน่ง absolute ของรูป */
+    min-height: calc(100vh - 120px); /* กำหนดความสูงต่ำสุดของ main เพื่อให้มีพื้นที่สำหรับรูป (100vh - header - footer) */
+    overflow: hidden; /* ซ่อนส่วนเกินของรูปภาพที่อาจล้นออกไป */
+    display: flex; /* ใช้ flexbox เพื่อจัด content อื่นๆ (เช่น h2) */
+    flex-direction: column; /* จัดเรียง item ในแนวตั้ง */
+    justify-content: flex-start; /* ให้ h2 อยู่ด้านบน */
+    align-items: center; /* จัด h2 ให้อยู่กึ่งกลางแนวนอน */
+}
+
+/* ปรับ h2 "สินค้าของเรา" ให้อยู่เหนือรูปภาพ */
+main h2 {
+    position: relative; /* ทำให้ h2 อยู่เหนือรูปภาพ */
+    z-index: 1; /* กำหนดให้ h2 อยู่ด้านหน้า */
+    color: white; /* เปลี่ยนสีตัวอักษรให้เห็นชัดเจนบนพื้นหลังรูป */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* เพิ่มเงาให้ตัวอักษรเพื่อให้อ่านง่ายขึ้น */
+    margin-top: 20px; /* เพิ่มระยะห่างจากด้านบนเล็กน้อย */
+}
+
+/* ปรับ body เพื่อให้ไม่มี margin/padding ที่อาจทำให้รูปไม่เต็ม */
+body {
+    margin: 0;
+    padding: 0;
+    background: #93bcc9; /* หรือถ้าอยากให้รูปเป็น background จริงๆ ก็เอาสีนี้ออกไป */
+    overflow: hidden; /* ซ่อน scrollbar ถ้าไม่จำเป็น */
+}
+
+/* ปรับ header และ footer เพื่อให้มีค่าที่แน่นอนสำหรับการคำนวณความสูงของรูป */
+header, footer {
+    position: relative; /* หรือ fixed ถ้าอยากให้มันอยู่กับที่ตลอด */
+    z-index: 10; /* ให้ header/footer อยู่ด้านหน้าสุด */
+    background: #000000;
+    color: rgb(152, 184, 233);
+    padding: 10px;
+    text-align: center;
+    /* เพิ่มความสูงที่ชัดเจน ถ้ามี */
+    height: 60px; /* สมมติว่า header สูง 60px */
+}
+footer {
+    height: 60px; /* สมมติว่า footer สูง 60px */
+}
+
+/* นำ .product-center ออกจากโค้ด เพราะเราจะใช้ img โดยตรงกับ main หรือใช้แค่ img ก็พอ */
+.product-center {
+    display: none; /* ซ่อน div นี้ไปเลย เพราะเราจะให้ img เป็น main element */
+}
+.product-center img {
+    width: 6000px; /* กำหนดความกว้างคงที่ 600px */
+    max-width: 1000%; /* ทำให้ย่อขนาดตามจอที่เล็กลงได้ */
+    height: auto;   /* ความสูงปรับอัตโนมัติ */
+    border: 50px solid #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
